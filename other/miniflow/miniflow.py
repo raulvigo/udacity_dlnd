@@ -54,15 +54,11 @@ class Add(Node):
     def forward(self):
         """
         Set the value of this node (`self.value`) to the sum of it's inbound_nodes.
-
-        Your code here!
         """
-
-
-"""
-No need to change anything below here!
-"""
-
+        # x_value = self.inbound_nodes[0].value
+        # y_value = self.inbound_nodes[1].value
+        # self.value = x_value + y_value
+        self.value = self.inbound_nodes[0].value + self.inbound_nodes[1].value
 
 def topological_sort(feed_dict):
     """

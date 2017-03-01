@@ -13,7 +13,7 @@ from miniflow import *
 
 x, y = Input(), Input()
 f = Add(x, y)
-feed_dict = {x: 10, y: 5}
+feed_dict = {x: 10, y: 30}
 
 # topological sorting using Kahn's Algorithm
 sorted_nodes = topological_sort(feed_dict)
