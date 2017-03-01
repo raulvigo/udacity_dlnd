@@ -46,10 +46,10 @@ class Input(Node):
 
 
 class Add(Node):
-    def __init__(self, x, y):
+    def __init__(self, x, y, z):
         # You could access `x` and `y` in forward with
         # self.inbound_nodes[0] (`x`) and self.inbound_nodes[1] (`y`)
-        Node.__init__(self, [x, y])
+        Node.__init__(self, [x, y, z])
 
     def forward(self):
         """
@@ -58,7 +58,7 @@ class Add(Node):
         # x_value = self.inbound_nodes[0].value
         # y_value = self.inbound_nodes[1].value
         # self.value = x_value + y_value
-        self.value = self.inbound_nodes[0].value + self.inbound_nodes[1].value
+        self.value = self.inbound_nodes[0].value + self.inbound_nodes[1].value + self.inbound_nodes[2].value
 
 def topological_sort(feed_dict):
     """
