@@ -13,13 +13,16 @@ from miniflow import *
 
 x, y, z = Input(), Input(), Input()
 f = Add(x, y, z)
+f2 = Mul(x,y)
 feed_dict = {x: 10, y: 30, z: 20}
 
 # topological sorting using Kahn's Algorithm
 sorted_nodes = topological_sort(feed_dict)
 # runs the network and outputs a value
 output = forward_pass(f, sorted_nodes)
+output2 = forward_pass(f2, sorted_nodes)
 
 # NOTE: because topological_sort set the values for the `Input` nodes we could also access
 # the value for x with x.value (same goes for y).
 print("{} + {} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict[y],  feed_dict[z], output))
+print("{} * {} = {} (according to miniflow)".format(feed_dict[x], feed_dict[y], output2))

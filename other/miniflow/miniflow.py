@@ -60,6 +60,22 @@ class Add(Node):
         # self.value = x_value + y_value
         self.value = self.inbound_nodes[0].value + self.inbound_nodes[1].value + self.inbound_nodes[2].value
 
+class Mul(Node):
+    def __init__(self, x, y):
+        # You could access `x` and `y` in forward with
+        # self.inbound_nodes[0] (`x`) and self.inbound_nodes[1] (`y`)
+        Node.__init__(self, [x, y])
+
+    def forward(self):
+        """
+        Set the value of this node (`self.value`) to the sum of it's inbound_nodes.
+        """
+        # x_value = self.inbound_nodes[0].value
+        # y_value = self.inbound_nodes[1].value
+        # self.value = x_value + y_value
+        self.value = self.inbound_nodes[0].value * self.inbound_nodes[1].value
+
+
 def topological_sort(feed_dict):
     """
     Sort generic nodes in topological order using Kahn's Algorithm.
